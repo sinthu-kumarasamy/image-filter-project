@@ -1,4 +1,4 @@
-import express from 'express';
+import express,{Request,Response} from 'express';
 import bodyParser from 'body-parser';
 import {filterImageFromURL, deleteLocalFiles} from './util/util';
 
@@ -30,7 +30,7 @@ import {filterImageFromURL, deleteLocalFiles} from './util/util';
   /**************************************************************************** */
 
   //! END @TODO1
-  app.get("/filteredImage",async(req,res)=>{
+  app.get("/filteredImage",async(req: Request, res: Response)=>{
     const img_url:string = req.query.image_url;
     if(!img_url){
       return res.status(400).send("Not an valid image")
